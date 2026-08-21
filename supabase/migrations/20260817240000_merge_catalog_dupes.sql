@@ -1,0 +1,66 @@
+-- Merge the confirmed near-duplicate pairs/clusters from the pg_trgm review
+-- (36 pairs total minus 4 held out as genuinely distinct SKUs -- see chat).
+-- One decision is a 3-way cluster (ewedu, drops 2 rows), the rest drop 1 each:
+-- 30 decisions, 31 rows deleted.
+
+update public.catalog_items set name = 'Tapioca (Cassava Pearls)', suggested_price = 7.99 where id = 'ff52e0db-7c7e-40d7-ba29-f845e5ea2038';
+delete from public.catalog_items where id = '8b0af846-b279-4934-9be3-7fefbc83d0e6';
+update public.catalog_items set name = 'Feldos Chin Chin', suggested_price = 5.99, subcategory = 'Chin chin' where id = '789e53cf-d9de-436b-8adc-2a89646c95f0';
+delete from public.catalog_items where id = 'bba50098-f20b-4928-8e51-d808058cf841';
+update public.catalog_items set name = 'Suya Pepper (Yaji Spice)', suggested_price = 6.99 where id = 'ae684019-6a88-4480-b199-e681f61a34a4';
+delete from public.catalog_items where id = 'd08c2b9a-4e04-4fde-9df9-ceec051e21f9';
+update public.catalog_items set name = 'Cow Skin (Ponmo)', suggested_price = 18.99 where id = '8713a52b-cea3-47c5-a319-cc446fb5620d';
+delete from public.catalog_items where id = '5d542c50-a368-4127-a1c6-8ceeca036942';
+update public.catalog_items set name = 'Plantain Chips (Go-Chips)', suggested_price = 3.99 where id = '26c57cf3-bfb1-4e89-b9c1-e317e0012b5e';
+delete from public.catalog_items where id = 'd3e4b784-7669-43fd-9352-ea40cb0024d6';
+update public.catalog_items set name = 'Frozen Banana Leaves', suggested_price = 4.99 where id = '764a6456-aa01-4ffe-b52b-abd4d900010a';
+delete from public.catalog_items where id = '28008e4a-d31a-447d-b8fe-1fdd776afa21';
+update public.catalog_items set name = 'Cameroon Pepper (Ground)', suggested_price = 7.99, subcategory = 'Spice' where id = '0d839a1c-05fe-4c8f-a1fa-4c63e7907d52';
+delete from public.catalog_items where id = '3a597736-f2f3-480a-8e28-301ae44c271f';
+update public.catalog_items set name = 'Ewedu (Jute Leaves), Frozen', suggested_price = 6.99 where id = 'ca5e7be0-86eb-42e8-866a-29db3806ad32';
+delete from public.catalog_items where id = '1d4194a9-800c-446f-8e73-80ce7f8855b4';
+delete from public.catalog_items where id = '23928b77-4b7b-4eea-b725-df97117e29b6';
+update public.catalog_items set name = 'Cream of Wheat', suggested_price = 5.99 where id = '34c46d09-6fe9-4d8d-8b7c-69b27097da26';
+delete from public.catalog_items where id = '899b8894-24ac-46eb-acc8-5b53e89eaeda';
+update public.catalog_items set name = 'Wheat Flour (Swallow)', suggested_price = 9.99 where id = '88e56d21-09ea-454b-aa13-07c30daacc87';
+delete from public.catalog_items where id = '56c7c21d-d86c-4e7f-9892-95d8a70409d5';
+update public.catalog_items set name = 'Cocoyam Flour', suggested_price = 9.99, category = 'Flours & Swallows', subcategory = 'Cocoyam' where id = 'efddb186-7658-42f4-8c5a-b979470713b3';
+delete from public.catalog_items where id = '4202f1a6-6ace-458a-b630-49efc30cd62a';
+update public.catalog_items set name = 'Lafun (Fermented Cassava Flour) 4lb', suggested_price = 10 where id = '0e0f8d8b-3c5a-4ad2-80e1-de93f0e03a43';
+delete from public.catalog_items where id = 'c8a51c81-517b-4002-851c-a1e77f1ae338';
+update public.catalog_items set name = 'Grace Coconut Milk Powder 50g', suggested_price = 1.29 where id = 'aaafedb2-4548-4b2d-a3a1-6a6e3e8b44e2';
+delete from public.catalog_items where id = '25824d1b-0710-421f-aef8-1f6c047185a9';
+update public.catalog_items set name = 'Eggplant Fufu (Low-Carb) 1lb', suggested_price = 12.99 where id = '1344770c-3b2b-4987-98d7-ebada6e23906';
+delete from public.catalog_items where id = 'e71057e6-9fe5-41ca-8e49-5b017d5f9f5e';
+update public.catalog_items set name = 'Korerima (Ethiopian Cardamom), Ground', suggested_price = 8.95 where id = '49851a50-cecc-41f3-ad9d-5b776c0780ef';
+delete from public.catalog_items where id = '3237dc60-7be3-4f57-bd1e-55472ab1b795';
+update public.catalog_items set name = 'Honey Beans (Oloyin) 4lb', suggested_price = 13 where id = 'e469f070-0250-456c-9180-831b2f01b657';
+delete from public.catalog_items where id = 'c99f1bbd-5651-4223-9a63-8ba8c1b0c396';
+update public.catalog_items set name = 'African Net Sponge (Sapo)', suggested_price = 4.99 where id = '389040d4-d389-49ea-a6fa-5eca8706e642';
+delete from public.catalog_items where id = '669a0d73-fe3b-4b39-b2a9-84d4e8abf6b1';
+update public.catalog_items set name = 'Ayoola Rice Flour 2lb', suggested_price = 5 where id = '099ce7d4-d33a-4959-8f6a-8fd040e08a85';
+delete from public.catalog_items where id = 'c5915fd2-a863-4805-85e6-5b1573b3ab80';
+update public.catalog_items set name = 'Pepper Soup Spice', suggested_price = 7.99 where id = 'cc2466ff-d1ea-461a-9e8a-8af6c7445f59';
+delete from public.catalog_items where id = 'e5a3aef7-77c4-4ffe-881e-d438cbebe6cd';
+update public.catalog_items set name = 'Grace Hot Pepper Sauce 12oz', suggested_price = 3.59, category = 'Sauces & Condiments', subcategory = 'Pepper sauce' where id = '7d93334d-01bc-496c-93be-3e06b0c50954';
+delete from public.catalog_items where id = 'f6682df3-881f-47cd-88bb-1eacc1b11d17';
+update public.catalog_items set name = 'Betapac Curry Powder 200g', suggested_price = 5.49, category = 'Seasonings' where id = '825cd69a-bfd6-4174-b667-411688d3f7f7';
+delete from public.catalog_items where id = '83271bbf-14c2-4b16-a7f5-77ce6dbde9ad';
+update public.catalog_items set name = 'Carnation Evaporated Milk 354ml', suggested_price = 2.79 where id = '1b25682d-9cb5-4e07-b0b8-b3a84ffa8827';
+delete from public.catalog_items where id = '76c62a34-7449-4fb4-9c84-110bd404c4e4';
+update public.catalog_items set name = 'Grace Sweetened Condensed Milk', suggested_price = 3.49 where id = '3f439113-1f1d-4097-88b1-79c7d5c8b764';
+delete from public.catalog_items where id = '3fcfd0d6-bda7-43f2-938e-8945fd9358f8';
+update public.catalog_items set name = 'Chewing Stick (Pako/Orin)', suggested_price = 3.99 where id = '96403f2c-0d2e-4b57-937b-3733a6bbf4b0';
+delete from public.catalog_items where id = '1a9f18b1-9465-4df7-9ef1-177b729d8843';
+update public.catalog_items set name = 'Frozen Spinach', suggested_price = 6.99 where id = 'fd4603f8-6ce1-4a07-9022-dd4d727461aa';
+delete from public.catalog_items where id = '27ef5800-b390-4e6f-bf7e-e6dcf40bcdce';
+update public.catalog_items set name = 'Custard Powder (Bird''s/Checkers)', suggested_price = 4.99 where id = '0c644d37-8b7d-4a12-afbc-3ab613a92f05';
+delete from public.catalog_items where id = 'd42bdf5a-bab0-4750-8766-6eb0e03d0a80';
+update public.catalog_items set name = 'Ofada Palm Oil (Bleached)', suggested_price = 21 where id = '65ec19e0-97b6-49af-b23f-0f77fe205b4d';
+delete from public.catalog_items where id = 'b6fef4c2-d397-46e5-8e5c-a7c91c3a86a7';
+update public.catalog_items set name = 'Geisha Mackerel 155g', suggested_price = 2.99 where id = '606694cf-3ec5-4a92-9c18-fcb8127ce0a8';
+delete from public.catalog_items where id = 'e7a7a97f-1d66-416c-83b5-eef9b83e09c1';
+update public.catalog_items set name = 'Ground Crayfish 100g', suggested_price = 9.99 where id = 'cd6f04cc-1f08-443a-8120-668006a6b145';
+delete from public.catalog_items where id = 'eb39a120-0fe3-48c5-a998-c49a3d104413';
+update public.catalog_items set name = 'Berbere (Chili Spice Blend)', suggested_price = 9.75 where id = '39b470d2-9ae8-48b5-91d5-9769d995a19c';
+delete from public.catalog_items where id = '825c199c-8c6e-4601-b65a-8ef92f3b4873';
