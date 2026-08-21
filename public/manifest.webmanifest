@@ -1,0 +1,10 @@
+{
+  "name": "AfriCarrt",
+  "short_name": "AfriCarrt",
+  "description": "African & Caribbean grocery delivery in Toronto",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf3e7",
+  "theme_color": "#c6551f",
+  "icons": []
+}
