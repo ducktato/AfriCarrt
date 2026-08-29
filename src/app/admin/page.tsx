@@ -4,6 +4,7 @@ import { roleHome } from "@/lib/roles";
 import { StoreActions } from "./StoreActions";
 import { LiveStoreActions } from "./LiveStoreActions";
 import { RecalculateCommissionButton } from "./RecalculateCommissionButton";
+import { ReactivateStoreButton } from "./ReactivateStoreButton";
 
 export default async function AdminDashboardPage() {
   const supabase = await createClient();
@@ -189,13 +190,19 @@ export default async function AdminDashboardPage() {
                   </span>
                 )}
               </span>
-              <LiveStoreActions storeId={store.id} isActive={store.is_active} />
+              <div className="flex flex-wrap items-center gap-2">
+                {store.suspension_level !== "none" && (
+                  <ReactivateStoreButton storeId={store.id} />
+                )}
+                <LiveStoreActions storeId={store.id} isActive={store.is_active} />
+              </div>
             </li>
           ))}
         </ul>
       )}
       <p className="mt-6 text-sm text-ink/50">
-        Disabling a store hides it from browsing and blocks new checkouts immediately.
+        Disabling a store hides it from browsing and blocks new checkouts immediately. Reactivating
+        a suspended store clears its strike count and performance standing.
       </p>
     </div>
   );
