@@ -81,7 +81,7 @@ export function OrderTracker({
                 <div className="flex w-full items-center">
                   <div className={`h-0.5 flex-1 ${i === 0 ? "invisible" : reached ? "bg-forest" : "bg-sand"}`} />
                   <div
-                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-semibold ${
+                    className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-[11px] font-semibold sm:h-8 sm:w-8 sm:text-xs ${
                       isCurrent
                         ? "bg-terracotta text-parchment"
                         : reached
@@ -95,7 +95,9 @@ export function OrderTracker({
                     className={`h-0.5 flex-1 ${i === steps.length - 1 ? "invisible" : currentIndex > i ? "bg-forest" : "bg-sand"}`}
                   />
                 </div>
-                <p className={`mt-2 text-xs font-medium ${isCurrent ? "text-ink" : "text-ink/50"}`}>
+                <p
+                  className={`mt-2 px-0.5 text-[10px] leading-tight font-medium sm:text-xs ${isCurrent ? "text-ink" : "text-ink/50"}`}
+                >
                   {step.label}
                 </p>
               </div>
