@@ -72,6 +72,27 @@ export async function setStoreActive(
   return null;
 }
 
+export async function reactivateStore(
+  _prevState: StoreActionState,
+  formData: FormData,
+): Promise<StoreActionState> {
+  const supabase = await createClient();
+  await requireAdmin(supabase);
+
+  const storeId = String(formData.get("store_id") ?? "");
+  if (!storeId) return { error: "Missing store id." };
+
+  const { error } = await supabase
+    .from("stores")
+    .update({ is_active: true, suspension_level: "none", strike_count: 0 })
+    .eq("id", storeId);
+
+  if (error) return { error: error.message };
+
+  revalidatePath("/admin");
+  return null;
+}
+
 export async function rejectStore(
   _prevState: StoreActionState,
   formData: FormData,
