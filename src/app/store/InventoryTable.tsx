@@ -65,7 +65,7 @@ export function InventoryTable({ listings }: { listings: ListingRow[] }) {
         ))}
 
         <div className="overflow-x-auto rounded-2xl border border-sand bg-white shadow-sm">
-          <table className="w-full text-sm">
+          <table className="w-full min-w-[560px] text-sm">
             <thead className="border-b border-sand text-left text-xs font-semibold tracking-wide text-ink/50 uppercase">
               <tr>
                 <th className="px-5 py-3">
@@ -77,11 +77,11 @@ export function InventoryTable({ listings }: { listings: ListingRow[] }) {
                     className="h-4 w-4 rounded border-sand accent-terracotta"
                   />
                 </th>
-                <th className="px-3 py-3">Item</th>
-                <th className="px-3 py-3">Price</th>
-                <th className="px-3 py-3">Stock</th>
-                <th className="px-3 py-3">Low-stock at</th>
-                <th className="px-3 py-3">Status</th>
+                <th className="px-3 py-3 whitespace-nowrap">Item</th>
+                <th className="px-3 py-3 whitespace-nowrap">Price</th>
+                <th className="px-3 py-3 whitespace-nowrap">Stock</th>
+                <th className="px-3 py-3 whitespace-nowrap">Low-stock at</th>
+                <th className="px-3 py-3 whitespace-nowrap">Status</th>
               </tr>
             </thead>
             <tbody>

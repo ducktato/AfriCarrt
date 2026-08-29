@@ -41,8 +41,8 @@ export default async function StoreDetailPage({
           const name = l.custom_name ?? l.catalog_items?.name ?? "Item";
           const category = l.custom_category ?? l.catalog_items?.category ?? "";
           return (
-            <div key={l.id} className="flex items-center justify-between rounded-xl border border-sand bg-white p-4 shadow-sm">
-              <div>
+            <div key={l.id} className="flex items-center justify-between gap-3 rounded-xl border border-sand bg-white p-4 shadow-sm">
+              <div className="min-w-0">
                 <p className="font-medium text-ink">{name}</p>
                 <p className="text-xs text-ink/50">{category}</p>
                 <p className="mt-1 font-mono font-medium text-terracotta">${Number(l.price).toFixed(2)}</p>
