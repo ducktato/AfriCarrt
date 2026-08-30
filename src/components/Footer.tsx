@@ -11,9 +11,6 @@ export function Footer() {
         <Link href="/privacy" className="hover:text-ink hover:underline">
           Privacy Policy
         </Link>
-        <Link href="/vendor-agreement" className="hover:text-ink hover:underline">
-          Vendor Agreement
-        </Link>
       </div>
     </footer>
   );
