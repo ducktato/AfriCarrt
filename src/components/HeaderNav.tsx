@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { logout } from "@/lib/auth-actions";
-import { CartLink } from "@/components/CartLink";
+import { CartIconLink } from "@/components/CartIconLink";
 
 export function HeaderNav({
   isLoggedIn,
@@ -30,7 +30,6 @@ export function HeaderNav({
       >
         Browse
       </Link>
-      <CartLink />
       {isLoggedIn ? (
         <>
           <Link
@@ -72,24 +71,30 @@ export function HeaderNav({
 
   return (
     <>
-      <nav className="hidden items-center gap-5 text-sm sm:flex">{links}</nav>
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-label={open ? "Close menu" : "Open menu"}
-        aria-expanded={open}
-        className="flex h-9 w-9 items-center justify-center rounded-full text-parchment sm:hidden"
-      >
-        {open ? (
-          <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" d="M6 6l12 12M18 6L6 18" />
-          </svg>
-        ) : (
-          <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" d="M4 7h16M4 12h16M4 17h16" />
-          </svg>
-        )}
-      </button>
+      <nav className="hidden items-center gap-5 text-sm sm:flex">
+        {links}
+        <CartIconLink />
+      </nav>
+      <div className="flex items-center gap-1 sm:hidden">
+        <CartIconLink />
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          className="flex h-9 w-9 items-center justify-center rounded-full text-parchment"
+        >
+          {open ? (
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          ) : (
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          )}
+        </button>
+      </div>
       {open && (
         <nav className="absolute top-16 right-0 left-0 flex flex-col gap-4 border-t border-parchment/10 bg-ink px-4 py-5 text-sm sm:hidden">
           {links}

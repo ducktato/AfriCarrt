@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
 import { Header } from "@/components/Header";
+import { SearchBar } from "@/components/SearchBar";
 import { Footer } from "@/components/Footer";
 import { CartProvider } from "@/lib/cart";
 import "./globals.css";
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col bg-parchment font-sans text-ink">
         <CartProvider>
           <Header />
+          <SearchBar />
           <main className="flex flex-1 flex-col">{children}</main>
           <Footer />
         </CartProvider>
