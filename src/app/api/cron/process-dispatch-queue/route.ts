@@ -4,6 +4,7 @@ import { stripe, computeCommission } from "@/lib/stripe";
 import { createServiceClient } from "@/lib/supabase/service";
 import { createDelivery, getDeliveryQuote } from "@/lib/uber-direct";
 import { sendTopUpPaymentEmail } from "@/lib/resend";
+import { orderSubtotal } from "@/lib/order-totals";
 
 // Runs every minute (see pg_cron job `process-dispatch-queue`) to settle
 // every order whose 10-minute stock-check window has closed:
@@ -86,13 +87,7 @@ async function settleOrder(
     .eq("order_id", order.id);
   const items = itemsRaw ?? [];
 
-  const lineTotal = (i: (typeof items)[number]) => {
-    if (i.availability_status === "resolved_refund") return 0;
-    if (i.availability_status === "resolved_substitute") return Number(i.effective_price ?? 0) * i.qty;
-    return Number(i.price_at_purchase) * i.qty;
-  };
-
-  const finalSubtotal = Math.round(items.reduce((sum, i) => sum + lineTotal(i), 0) * 100) / 100;
+  const finalSubtotal = orderSubtotal(items);
   const isFullCancellation = finalSubtotal <= 0;
   const finalDeliveryFee = isFullCancellation ? 0 : order.delivery_fee;
   const finalCommission = isFullCancellation
